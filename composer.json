@@ -1,0 +1,30 @@
+{
+    "name": "flexible-soft/php-flex-users",
+    "description": "PHP Flex Users module",
+    "type": "composer-plugin",
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "php": ">=5.4.0",
+        "yiisoft/yii": "1.1.*",
+        "phpunit/phpunit": "4.5.*",
+        "phpunit/php-invoker": "*",
+        "phpunit/dbunit": ">=1.2",
+        "phpunit/phpunit-selenium": ">=1.2",
+        "phpunit/phpunit-story": "*"
+    },
+    "authors": [
+        {
+            "name": "Huy Ta",
+            "email": "huytbt@gmail.com",
+            "role": "Founder and project lead"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FlexUser\\": "src/"
+        }
+    }
+}
