@@ -7,7 +7,7 @@ namespace FlexUser\Model;
  */
 class User extends \FlexActiveRecord
 {
-    public $table = 'flex_user';
+    public $table = 'user';
 
     public function createUser($attributes = array())
     {
