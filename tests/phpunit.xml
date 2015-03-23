@@ -1,4 +1,4 @@
-<phpunit bootstrap="yii/protected/tests/bootstrap.php"
+<phpunit bootstrap="yii/tests/bootstrap.php"
 		colors="true"
 		convertErrorsToExceptions="true"
 		convertNoticesToExceptions="true"
