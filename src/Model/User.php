@@ -9,8 +9,13 @@ class User extends \FlexActiveRecord
 {
     public $table = 'user';
 
-    public function createUser($attributes = array())
+    public function findByEmail($email)
     {
-        return $attributes;
+        return new User();
+    }
+
+    public function comparePassword($password)
+    {
+        return true;
     }
 }
