@@ -12,10 +12,12 @@ use FlexBase\Boom;
 class Login extends \FlexBase\Action
 {
     /**
-     * Run this action
-     * @param  string  $email      Email
-     * @param  string  $password   Password
-     * @param  Closure $callback   Password
+     * Run this action.
+     *
+     * @param string  $email    Email
+     * @param string  $password Password
+     * @param Closure $callback Password
+     *
      * @return FlexUser\Model\User User model
      */
     public function run($email, $password, $callback)
@@ -28,11 +30,14 @@ class Login extends \FlexBase\Action
         }
 
         // find user
-        $user = User::findByEmail($email);
+        $user = User::staticModel()->findByEmail($email);
+        if (empty($user)) {
+            return $callback(Boom::notFound('Email or password does not match.'), null);
+        }
 
         // compare password
         if (!$user->comparePassword($password)) {
-            return $callback(Boom::unauthorized('Username or password does not match.'), null);
+            return $callback(Boom::unauthorized('Email or password does not match.'), null);
         }
 
         // create token
