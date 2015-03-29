@@ -26,5 +26,10 @@
         "psr-4": {
             "FlexUser\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FlexBase\\": "../php-flex-base/src"
+        }
     }
 }
