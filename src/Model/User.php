@@ -38,12 +38,32 @@ class User extends \FlexActiveRecord
     /**
      * Compare password.
      *
-     * @param string $password Password
+     * @param string  $password            Password
+     * @param Closure $encryptionAlgorithm Encryption Algorithm
      *
      * @return boolean Match or not
      */
-    public function comparePassword($password)
+    public function comparePassword($password, $encryptionAlgorithm = null)
     {
-        return true;
+        if (empty($encryptionAlgorithm)) {
+            $encryptionAlgorithm = function ($password) {
+
+                return \FlexUser\Model\User::encryptPassword($password);
+            };
+        }
+
+        return $this->password === $encryptionAlgorithm($password);
+    }
+
+    /**
+     * Encrypt Password
+     *
+     * @param string $password Password
+     *
+     * @return string md5
+     */
+    public static function encryptPassword($password)
+    {
+        return md5(sha1($password).$password);
     }
 }

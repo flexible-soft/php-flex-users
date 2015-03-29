@@ -11,6 +11,8 @@ use FlexBase\Boom;
  */
 class Login extends \FlexBase\Action
 {
+    public $encryptionAlgorithm = null;
+
     /**
      * Run this action.
      *
@@ -32,11 +34,11 @@ class Login extends \FlexBase\Action
         // find user
         $user = User::staticModel()->findByEmail($email);
         if (empty($user)) {
-            return $callback(Boom::notFound('Email or password does not match.'), null);
+            return $callback(Boom::unauthorized('Email or password does not match.'), null);
         }
 
         // compare password
-        if (!$user->comparePassword($password)) {
+        if (!$user->comparePassword($password, $this->encryptionAlgorithm)) {
             return $callback(Boom::unauthorized('Email or password does not match.'), null);
         }
 
