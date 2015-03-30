@@ -8,7 +8,7 @@ before_script:
   - composer install --prefer-source --no-interaction --dev
   - cd tests
 
-script: phpunit
+script: phpunit ./
 
 notifications:
   on_success: always
