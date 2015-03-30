@@ -1,8 +1,3 @@
-<phpunit bootstrap="yii/tests/bootstrap.php"
-		colors="true"
-		convertErrorsToExceptions="true"
-		convertNoticesToExceptions="true"
-		convertWarningsToExceptions="true"
-		stopOnFailure="false">
+<phpunit bootstrap="yii/tests/bootstrap.php">
 
 </phpunit>
