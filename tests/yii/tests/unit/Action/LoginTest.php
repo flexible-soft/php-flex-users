@@ -86,4 +86,22 @@ class LoginTest extends \PHPUnit_Framework_TestCase
             \PHPUnit_Framework_TestCase::assertEquals($data['user']->email, 'test1@example.com');
         });
     }
+
+    public function testAfterAction()
+    {
+        $this->loginAction->after = function ($data) {
+
+            \PHPUnit_Framework_TestCase::assertEquals($data['user']->email, 'test1@example.com');
+        };
+
+        $this->loginAction->encryptionAlgorithm = function ($password) {
+
+            return $password;
+        };
+
+        $this->loginAction->run('test1@example.com', 'pass1', function ($err, $data) {
+
+            \PHPUnit_Framework_TestCase::assertEquals($err, null);
+        });
+    }
 }
