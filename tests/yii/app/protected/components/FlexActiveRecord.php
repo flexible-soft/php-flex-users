@@ -39,7 +39,7 @@ class FlexActiveRecord extends \CActiveRecord
      *
      * @return FlexActiveRecord Active Record
      */
-    public function findByAttributes($attributes = array())
+    public function findByAttributes($attributes, $condition = '', $params = array())
     {
         return parent::findByAttributes($attributes);
     }
