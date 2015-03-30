@@ -18,7 +18,7 @@ class Login extends \FlexBase\Action
      *
      * @param string  $email    Email
      * @param string  $password Password
-     * @param Closure $callback Password
+     * @param Closure $callback Callback
      *
      * @return FlexUser\Model\User User model
      */
@@ -45,12 +45,12 @@ class Login extends \FlexBase\Action
         // create token
         $token = Token::create($user);
 
-        $after && $this->after(array(
+        $after && $after(array(
             'user'  => $user,
             'token' => $token,
         ));
 
-        $callback(null, array(
+        return $callback(null, array(
             'user'  => $user,
             'token' => $token,
         ));
