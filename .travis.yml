@@ -9,7 +9,7 @@ before_script:
 
 script:
   - cd tests
-  - phpunit ./
+  - phpunit
 
 notifications:
   on_success: always
