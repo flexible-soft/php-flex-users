@@ -9,7 +9,12 @@
     "require-dev": {
         "php": ">=5.3.0",
         "yiisoft/yii": "1.1.*",
-        "flexible-soft/php-flex-base": "dev-master"
+        "flexible-soft/php-flex-base": "dev-master",
+        "phpunit/phpunit": "4.5.*",
+        "phpunit/php-invoker": "*",
+        "phpunit/dbunit": ">=1.2",
+        "phpunit/phpunit-selenium": ">=1.2",
+        "phpunit/phpunit-story": "*"
     },
     "authors": [
         {
