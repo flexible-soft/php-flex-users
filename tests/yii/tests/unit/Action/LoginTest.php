@@ -51,9 +51,12 @@ class LoginTest extends \PHPUnit_Framework_TestCase
      */
     public function testFindUserNotFound()
     {
+        var_dump(1);
         $this->loginAction->run('nouser@example.com', '123456', function ($err, $data) {
 
+            var_dump(2);
             if (!empty($err) && $err instanceof \Exception) {
+                var_dump(3);
                 throw $err;
             }
         });
