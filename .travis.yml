@@ -7,7 +7,7 @@ before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
 
-script: vendor/bin/phpunit --configuration phpunit.xml --coverage-text --debug
+script: vendor/bin/phpunit --configuration phpunit.xml --coverage-text
 
 notifications:
   on_success: always
