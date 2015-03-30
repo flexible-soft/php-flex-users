@@ -29,19 +29,19 @@ class LoginTest extends \PHPUnit_Framework_TestCase
     {
         $this->loginAction->run(null, null, function ($err, $data) {
 
-            \PHPUnit_Framework_TestCase::assertEquals($err, 'Email cannot be blank.');
+            $this->assertEquals($err, 'Email cannot be blank.');
         });
         $this->loginAction->run('', null, function ($err, $data) {
 
-            \PHPUnit_Framework_TestCase::assertEquals($err, 'Email cannot be blank.');
+            $this->assertEquals($err, 'Email cannot be blank.');
         });
         $this->loginAction->run('test1@example.com', null, function ($err, $data) {
 
-            \PHPUnit_Framework_TestCase::assertEquals($err, 'Password cannot be blank.');
+            $this->assertEquals($err, 'Password cannot be blank.');
         });
         $this->loginAction->run('test1@example.com', '', function ($err, $data) {
 
-            \PHPUnit_Framework_TestCase::assertEquals($err, 'Password cannot be blank.');
+            $this->assertEquals($err, 'Password cannot be blank.');
         });
     }
 
@@ -82,8 +82,8 @@ class LoginTest extends \PHPUnit_Framework_TestCase
 
         $this->loginAction->run('test1@example.com', 'pass1', function ($err, $data) {
 
-            \PHPUnit_Framework_TestCase::assertEquals($err, null);
-            \PHPUnit_Framework_TestCase::assertEquals($data['user']->email, 'test1@example.com');
+            $this->assertEquals($err, null);
+            $this->assertEquals($data['user']->email, 'test1@example.com');
         });
     }
 
@@ -91,7 +91,7 @@ class LoginTest extends \PHPUnit_Framework_TestCase
     {
         $this->loginAction->after = function ($data) {
 
-            \PHPUnit_Framework_TestCase::assertEquals($data['user']->email, 'test1@example.com');
+            $this->assertEquals($data['user']->email, 'test1@example.com');
         };
 
         $this->loginAction->encryptionAlgorithm = function ($password) {
@@ -101,7 +101,7 @@ class LoginTest extends \PHPUnit_Framework_TestCase
 
         $this->loginAction->run('test1@example.com', 'pass1', function ($err, $data) {
 
-            \PHPUnit_Framework_TestCase::assertEquals($err, null);
+            $this->assertEquals($err, null);
         });
     }
 }
