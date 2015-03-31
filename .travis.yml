@@ -7,7 +7,9 @@ before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
 
-script: vendor/bin/phpunit --configuration phpunit.xml --coverage-text
+script:
+  - php vendor/bin/phpcs --report=checkstyle --report-file=build/logs/checkstyle.xml --standard=build/config/phpcs.xml --ignore=*.html.php,*.config.php,*.twig.php src
+  - vendor/bin/phpunit --configuration phpunit.xml --coverage-text
 
 notifications:
   on_success: always
