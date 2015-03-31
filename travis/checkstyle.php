@@ -64,7 +64,7 @@ define('NORMAL_PRIORITY', 3);
 
 $result = array(
     checkFile("checkstyle.xml"),
-    checkFile("checkstyle-apigen.xml"),
+    // checkFile("checkstyle-apigen.xml"),
 );
 
 foreach ($result as $value) {

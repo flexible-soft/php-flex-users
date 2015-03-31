@@ -12,8 +12,7 @@ class Token extends \FlexBase\Component
      * @param  FlexUser\Model\User $user User
      * @return string                    Access Token
      */
-    public static function create($user)
-    {
+    public static function create($user) {
         return md5($user->id);
     }
 }
