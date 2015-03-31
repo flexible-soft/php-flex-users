@@ -56,7 +56,7 @@ class User extends \FlexActiveRecord
     }
 
     /**
-     * Encrypt Password
+     * Encrypt Password.
      *
      * @param string $password Password
      *
