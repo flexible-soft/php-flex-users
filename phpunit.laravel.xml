@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="tests/apps/yii/protected/tests/bootstrap.php" colors="true">
+<phpunit bootstrap="./tests/apps/laravel/bootstrap/test.php" colors="true" backupGlobals="false">
     <testsuites>
-        <testsuite name="Run on Yii App Test Suite">
+        <testsuite name="Run on Laravel App Test Suite">
             <directory>./tests/testsuites/</directory>
         </testsuite>
     </testsuites>
